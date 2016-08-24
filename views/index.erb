@@ -1,2 +1,46 @@
 <h2>Welcome to FastFood</h2>
+
+<div class="row">
+
+    <% @products.each do |p| %>
+        <div class="col-md-3">
+            <div>
+                <%= p.title %>
+            </div>
+            
+            <div>
+                <img src="<%= p.path_to_image %>"></img>
+            </div>
+            
+            <div>
+                <%= p.description %>
+            </div>
+            
+            <div>
+                Size: <%= p.size %> cm
+            </div>
+            
+            <div>
+                Price: <%= p.price %> UAH
+            </div>
+            
+            <div>
+                <button class="btn btn-sm btn-success" onclick="add_to_cart(<%= p.id %>)">Add to cart</button>
+            </div>
+        </div>
+    <% end %>
+
+</div>
+<br />
 <button type="button" class="btn btn-primary btn-lg" onclick="something()">Click Me!</button>
+
+<script type="text/javascript">
+
+$(function() {
+    
+    update_orders_input();
+    update_orders_button();
+    
+});
+    
+</script>
